@@ -193,7 +193,7 @@ M.highlights.label = Highlight.new("Label", { link = gruber_hl.yellow_bold })
 ---"sizeof", "+", "*", etc.
 M.highlights.operator = Highlight.new("Operator", { fg = c.fg, italic = opts.italic.operators })
 ---Any other keyword
-M.highlights.keyword = Highlight.new("Keyword", { fg = c.brown, bold = opts.bold })
+M.highlights.keyword = Highlight.new("Keyword", { link = gruber_hl.yellow_bold })
 ---Try, catch, throw
 M.highlights.exception = Highlight.new("Exception", { link = gruber_hl.yellow_bold })
 ---(preferred) generic Preprocessor
