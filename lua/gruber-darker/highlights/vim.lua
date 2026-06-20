@@ -173,11 +173,11 @@ M.highlights.string = Highlight.new("String", { fg = c.green, italic = opts.ital
 ---A character constant: 'c', '\n'
 M.highlights.character = Highlight.new("Character", { fg = c.green, italic = opts.italic.strings })
 ---A number constant: 234, 0xff
-M.highlights.number = Highlight.new("Number", { link = gruber_hl.wisteria })
+M.highlights.number = Highlight.new("Number", { link = gruber_hl.quartz })
 ---A boolean constant: TRUE, false
 M.highlights.boolean = Highlight.new("Boolean", { link = gruber_hl.yellow_bold })
 ---A floating point constant: 2.3e10
-M.highlights.float = Highlight.new("Float", { link = gruber_hl.wisteria })
+M.highlights.float = Highlight.new("Float", { link = gruber_hl.quartz })
 ---(preferred) any variable name
 M.highlights.identifier = Highlight.new("Identifier", { link = gruber_hl.fg1 })
 ---Function name (also: methods for classes)
