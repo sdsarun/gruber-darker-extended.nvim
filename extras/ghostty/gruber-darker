@@ -2,7 +2,7 @@
 # -------------------------
 # Theme author: John Gruber (https://daringfireball.net/projects/bbcolors/schemes/)
 # Ported by: blazkowolf (https://github.com/blazkowolf/gruber-darker.nvim)
-# Extended by: Sarun Daunghirun (https://github.com/tccsarund/gruber-darker-extended.nvim)
+# Extended by: Sarun Daunghirun (https://github.com/sdsarun/gruber-darker-extended.nvim)
 
 palette = 0=#181818
 palette = 1=#F43841

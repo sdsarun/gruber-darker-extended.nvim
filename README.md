@@ -13,7 +13,7 @@ _A personal fork of [gruber-darker.nvim][upstream] with extended plugin highligh
 
 ```lua
 {
-  "tccsarund/gruber-darker-extended.nvim",
+  "sdsarun/gruber-darker-extended.nvim",
   name = "gruber-darker",
 }
 ```
@@ -54,7 +54,7 @@ Your preferences will be merged with the defaults.
 
 ```lua
 {
-  "tccsarund/gruber-darker-extended.nvim",
+  "sdsarun/gruber-darker-extended.nvim",
   name = "gruber-darker",
   opts = {
     bold = false,
