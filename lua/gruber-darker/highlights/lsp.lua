@@ -57,10 +57,10 @@ M.highlights.lsp_signature_active_parameter = Highlight.new("LspSignatureActiveP
 -- highlighting (e.g. tsserver property/method semantic tokens) stays
 -- consistent with treesitter highlighting instead of going unstyled.
 M.highlights.lsp_type_variable = Highlight.new("@lsp.type.variable", { link = ts_hl.variable })
-M.highlights.lsp_type_parameter = Highlight.new("@lsp.type.parameter", { link = ts_hl.parameter })
-M.highlights.lsp_type_property = Highlight.new("@lsp.type.property", { link = ts_hl.property })
+M.highlights.lsp_type_parameter = Highlight.new("@lsp.type.parameter", { link = ts_hl.variable_parameter })
+M.highlights.lsp_type_property = Highlight.new("@lsp.type.property", { link = ts_hl.variable_member })
 M.highlights.lsp_type_function = Highlight.new("@lsp.type.function", { link = ts_hl.func })
-M.highlights.lsp_type_method = Highlight.new("@lsp.type.method", { link = ts_hl.method })
+M.highlights.lsp_type_method = Highlight.new("@lsp.type.method", { link = ts_hl.function_method })
 M.highlights.lsp_type_class = Highlight.new("@lsp.type.class", { link = ts_hl.type })
 M.highlights.lsp_type_interface = Highlight.new("@lsp.type.interface", { link = ts_hl.type })
 M.highlights.lsp_type_struct = Highlight.new("@lsp.type.struct", { link = ts_hl.type })

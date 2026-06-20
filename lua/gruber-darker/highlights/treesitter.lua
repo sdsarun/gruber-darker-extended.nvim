@@ -52,12 +52,16 @@ M.highlights.punctuation_special = Highlight.new("@punctuation.special", { link 
 M.highlights.string = Highlight.new("@string", { link = vim_hl.string })
 ---String documenting code (e.g. Python docstrings)
 M.highlights.string_documentation = Highlight.new("@string.documentation", { link = vim_hl.string })
----Regular expressions
+---Regular expressions (legacy capture name)
 M.highlights.string_regex = Highlight.new("@string.regex", { link = vim_hl.constant })
+---Regular expressions (current capture name, see :h treesitter-highlight-groups)
+M.highlights.string_regexp = Highlight.new("@string.regexp", { link = M.highlights.string_regex })
 ---Escape sequences
 M.highlights.string_escape = Highlight.new("@string.escape", { link = vim_hl.constant })
 ---Other special strings (e.g dates)
 M.highlights.string_special = Highlight.new("@string.special", { link = vim_hl.constant })
+---URLs/URIs inside strings (e.g. in JSDoc, comments)
+M.highlights.string_special_url = Highlight.new("@string.special.url", { fg = c.niagara, underline = opts.underline })
 
 ---Character literals
 M.highlights.character = Highlight.new("@character", { link = vim_hl.character })
@@ -68,8 +72,10 @@ M.highlights.character_special = Highlight.new("@character.special", { link = vi
 M.highlights.boolean = Highlight.new("@boolean", { link = vim_hl.boolean })
 ---Numeric literals
 M.highlights.number = Highlight.new("@number", { link = vim_hl.number })
----Floating-point number literals
+---Floating-point number literals (legacy capture name)
 M.highlights.float = Highlight.new("@float", { link = vim_hl.float })
+---Floating-point number literals (current capture name)
+M.highlights.number_float = Highlight.new("@number.float", { link = M.highlights.float })
 
 -- Functions
 
@@ -82,22 +88,31 @@ M.highlights.func_call = Highlight.new("@function.call", { link = vim_hl.func })
 ---Preprocessor macros
 M.highlights.func_macro = Highlight.new("@function.macro", { link = vim_hl.macro })
 
----Method definitions
+---Method definitions (legacy capture name)
 M.highlights.method = Highlight.new("@method", { link = vim_hl.func })
----Method calls
+---Method definitions (current capture name)
+M.highlights.function_method = Highlight.new("@function.method", { link = M.highlights.method })
+---Method calls (legacy capture name)
 M.highlights.method_call = Highlight.new("@method.call", { link = vim_hl.func })
+---Method calls (current capture name; what most TS/JS/TSX queries actually emit
+---for things like `this.setState(...)` or `console.log(...)`)
+M.highlights.function_method_call = Highlight.new("@function.method.call", { link = M.highlights.method_call })
 
 ---constructor calls and definitions
 M.highlights.constructor = Highlight.new("@constructor", { link = vim_hl.func })
----parameters of a function
+---parameters of a function (legacy capture name)
 M.highlights.parameter = Highlight.new("@parameter", { link = vim_hl.identifier })
+---parameters of a function (current capture name)
+M.highlights.variable_parameter = Highlight.new("@variable.parameter", { link = M.highlights.parameter })
+---built-in parameters (e.g. `self` in Python/Lua)
+M.highlights.variable_parameter_builtin = Highlight.new("@variable.parameter.builtin", { link = gruber_hl.yellow })
 
 -- Keywords
 
 ---various keywords
 M.highlights.keyword = Highlight.new("@keyword", { link = vim_hl.keyword })
 ---keywords related to coroutines (e.g. `go` in Go, `async/await` in Python)
--- M.highlights.keyword_coroutine = Highlight.new("@keyword.coroutine", {})
+M.highlights.keyword_coroutine = Highlight.new("@keyword.coroutine", { link = vim_hl.keyword })
 ---keywords that define a function (e.g. `func` in Go, `def` in Python)
 M.highlights.keyword_function = Highlight.new("@keyword.function", { link = vim_hl.keyword })
 ---operators that are English words (e.g. `and` / `or`)
@@ -105,21 +120,37 @@ M.highlights.keyword_operator = Highlight.new("@keyword.operator", { link = vim_
 ---keywords like `return` and `yield`
 M.highlights.keyword_return = Highlight.new("@keyword.return", { link = vim_hl.keyword })
 
----keywords related to conditionals (e.g. `if` / `else`)
+---keywords related to conditionals (e.g. `if` / `else`) (legacy capture name)
 M.highlights.conditional = Highlight.new("@conditional", { fg = c.yellow })
----ternary operator (e.g. `?` / `:`)
+---keywords related to conditionals (current capture name)
+M.highlights.keyword_conditional = Highlight.new("@keyword.conditional", { link = M.highlights.conditional })
+---ternary operator (e.g. `?` / `:`) (legacy capture name)
 M.highlights.conditional_ternary = Highlight.new("@conditional.ternary", {})
+---ternary operator (current capture name)
+M.highlights.keyword_conditional_ternary = Highlight.new("@keyword.conditional.ternary", { link = M.highlights.conditional_ternary })
 
----keywords related to loops (e.g. `for` / `while`)
+---keywords related to loops (e.g. `for` / `while`) (legacy capture name)
 M.highlights.repeats = Highlight.new("@repeat", { link = vim_hl.repeats })
+---keywords related to loops (current capture name)
+M.highlights.keyword_repeat = Highlight.new("@keyword.repeat", { link = M.highlights.repeats })
 ---keywords related to debugging
 M.highlights.debug = Highlight.new("@debug", { link = vim_hl.debug })
 ---GOTO and other labels (e.g. `label:` in C)
 M.highlights.label = Highlight.new("@label", { link = vim_hl.label })
----keywords for including modules (e.g. `import` / `from` in Python)
+---keywords for including modules (e.g. `import` / `from` in Python) (legacy capture name)
 M.highlights.include = Highlight.new("@include", { link = vim_hl.include })
----keywords related to exceptions (e.g. `throw` / `catch`)
+---keywords for including modules (current capture name)
+M.highlights.keyword_import = Highlight.new("@keyword.import", { link = M.highlights.include })
+---keywords related to exceptions (e.g. `throw` / `catch`) (legacy capture name)
 M.highlights.exception = Highlight.new("@exception", { link = vim_hl.exception })
+---keywords related to exceptions (current capture name)
+M.highlights.keyword_exception = Highlight.new("@keyword.exception", { link = M.highlights.exception })
+---modifier keywords (e.g. `public` / `private` / `readonly` / `static` in TS)
+M.highlights.keyword_modifier = Highlight.new("@keyword.modifier", { link = vim_hl.storage_class })
+---keywords that declare a type (e.g. `type` / `interface` in TS)
+M.highlights.keyword_type = Highlight.new("@keyword.type", { link = vim_hl.keyword })
+---various preprocessor or compile-time directives (e.g. `"use client"`)
+M.highlights.keyword_directive = Highlight.new("@keyword.directive", { link = vim_hl.pre_proc })
 
 -- Types
 
@@ -134,13 +165,17 @@ M.highlights.type_definition = Highlight.new("@type.definition", { link = vim_hl
 
 ---modifiers that affect storage in memory or life-time
 M.highlights.storage_class = Highlight.new("@storageclass", { link = vim_hl.storage_class })
----attribute annotations (e.g. Python decorators)
--- I don't think this is supported anymore...
--- M.highlights.attribute = Highlight.new("@attribute", { link = gruber_hl.brown })
----object and struct fields
+---attribute annotations (e.g. Python/TS decorators)
+M.highlights.attribute = Highlight.new("@attribute", { link = gruber_hl.brown })
+---built-in attribute annotations
+M.highlights.attribute_builtin = Highlight.new("@attribute.builtin", { link = gruber_hl.yellow })
+---object and struct fields (legacy capture name)
 M.highlights.field = Highlight.new("@field", { link = gruber_hl.niagara })
----similar to `@field`
+---similar to `@field` (legacy capture name)
 M.highlights.property = Highlight.new("@property", { link = gruber_hl.niagara })
+---object and struct fields (current capture name; what TS/JS/TSX queries emit for
+---property/member access, e.g. `state` in `this.state` or `setState` as a definition)
+M.highlights.variable_member = Highlight.new("@variable.member", { link = M.highlights.field })
 
 -- Identifiers
 
@@ -156,8 +191,12 @@ M.highlights.constant_builtin = Highlight.new("@constant.builtin", { link = grub
 ---constants defined by the preprocessor
 M.highlights.constant_macro = Highlight.new("@constant.macro", { link = vim_hl.define })
 
----modules or namespaces
+---modules or namespaces (legacy capture name)
 M.highlights.namespace = Highlight.new("@namespace", { link = gruber_hl.quartz })
+---modules or namespaces (current capture name)
+M.highlights.module = Highlight.new("@module", { link = M.highlights.namespace })
+---built-in modules or namespaces
+M.highlights.module_builtin = Highlight.new("@module.builtin", { link = gruber_hl.yellow })
 ---symbols or atoms
 -- M.highlights.symbol = Highlight.new("@symbol", {})
 
