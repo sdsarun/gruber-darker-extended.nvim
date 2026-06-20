@@ -1,31 +1,21 @@
-# gruber-darker.nvim
+# gruber-darker-extended.nvim
 
-_A modern Neovim port of a deftheme [adaptation][gruber-darker-theme] of an Emacs
-[port][gruber-darker] of a BBEdit [colorscheme][gruber-dark]_
+_A personal fork of [gruber-darker.nvim][upstream] with extended plugin highlight support for [LazyVim][lazyvim]_
 
 > **Note**
-> This is a work in progress, but fairly stable
+> This is a personal configuration fork — not intended for general use
 
 ![image](https://user-images.githubusercontent.com/9439488/229402983-b27a2fc4-d938-4ed0-8f7f-7711f73aa985.png)
 
 ## Installation
 
-### Lazy (recommended)
+### Lazy
 
 ```lua
-{ "blazkowolf/gruber-darker.nvim" }
-```
-
-### Packer
-
-```lua
-use "blazkowolf/gruber-darker.nvim"
-```
-
-### Plug
-
-```vim
-Plug 'blazkowolf/gruber-darker.nvim'
+{
+  "tccsarund/gruber-darker-extended.nvim",
+  name = "gruber-darker",
+}
 ```
 
 Then, somewhere in your `init.lua`, set the colorscheme
@@ -59,15 +49,13 @@ vim.cmd.colorscheme("gruber-darker")
 
 ### With updated preferences
 
-Change configuration options by calling `setup()`
-prior to loading the colorscheme. Your preferences
-will be merged with the defaults.
-
-For example, with [Lazy](https://github.com/folke/lazy.nvim.git)...
+Change configuration options by calling `setup()` prior to loading the colorscheme.
+Your preferences will be merged with the defaults.
 
 ```lua
 {
-  "blazkowolf/gruber-darker.nvim",
+  "tccsarund/gruber-darker-extended.nvim",
+  name = "gruber-darker",
   opts = {
     bold = false,
     italic = {
@@ -77,17 +65,50 @@ For example, with [Lazy](https://github.com/folke/lazy.nvim.git)...
 }
 ```
 
+## Extended Plugin Support
+
+This fork adds highlight groups for the following plugins beyond the upstream:
+
+| Plugin | Groups |
+|--------|--------|
+| [snacks.nvim][snacks] | Dashboard, Picker, Notifier, Indent guides, Words, Input, Zen |
+| [noice.nvim][noice] | Cmdline, Popup, Scrollbar, Mini, Virtual text, LSP progress, Format tokens |
+| [bufferline.nvim][bufferline] | Full buffer/tab/diagnostic/pick groups |
+| [neo-tree.nvim][neo-tree] | File tree, git status, tabs |
+| [which-key.nvim][which-key] | Key, group, desc, float |
+| [mason.nvim][mason] | Header, highlight, muted, error |
+| [trouble.nvim][trouble] | Diagnostics panel, signs, icons |
+| [todo-comments.nvim][todo-comments] | TODO, FIXME, HACK, WARN, NOTE, PERF, TEST |
+| [flash.nvim][flash] | Backdrop, match, label, cursor, prompt |
+| [blink.cmp][blink-cmp] | Menu, label, kind icons, doc, signature help, ghost text |
+| [render-markdown.nvim][render-markdown] | Headings, code blocks, bullets, links, tables, quotes |
+| [indent-blankline.nvim][ibl] | Indent, scope, whitespace (v2 + v3) |
+| [rainbow-delimiters.nvim][rainbow] | Rainbow bracket levels |
+| [gitsigns.nvim][gitsigns] | Sign column git status |
+
 ## Credits
 
-These repositories were great knowledge sources and their
-inspiration helped immensely with the development of this plugin.
-
+- [blazkowolf/gruber-darker.nvim][upstream] — original Neovim port this fork is based on
 - [rexim/gruber-darker-theme][gruber-darker-theme]
 - [folke/tokyonight.nvim][tokyonight]
 - [drsooch/gruber-darker-vim][gruber-darker-vim]
 
+[upstream]: https://github.com/blazkowolf/gruber-darker.nvim
+[lazyvim]: https://github.com/LazyVim/LazyVim
+[snacks]: https://github.com/folke/snacks.nvim
+[noice]: https://github.com/folke/noice.nvim
+[bufferline]: https://github.com/akinsho/bufferline.nvim
+[neo-tree]: https://github.com/nvim-neo-tree/neo-tree.nvim
+[which-key]: https://github.com/folke/which-key.nvim
+[mason]: https://github.com/williamboman/mason.nvim
+[trouble]: https://github.com/folke/trouble.nvim
+[todo-comments]: https://github.com/folke/todo-comments.nvim
+[flash]: https://github.com/folke/flash.nvim
+[blink-cmp]: https://github.com/Saghen/blink.cmp
+[render-markdown]: https://github.com/MeanderingProgrammer/render-markdown.nvim
+[ibl]: https://github.com/lukas-reineke/indent-blankline.nvim
+[rainbow]: https://github.com/HiPhish/rainbow-delimiters.nvim
+[gitsigns]: https://github.com/lewis6991/gitsigns.nvim
 [gruber-darker-theme]: https://github.com/rexim/gruber-darker-theme
-[gruber-darker]: https://jblevins.org/projects/emacs-color-themes/gruber-darker-theme.el.html
-[gruber-dark]: http://daringfireball.net/projects/bbcolors/schemes/
 [tokyonight]: https://github.com/folke/tokyonight.nvim
 [gruber-darker-vim]: https://github.com/drsooch/gruber-darker-vim
