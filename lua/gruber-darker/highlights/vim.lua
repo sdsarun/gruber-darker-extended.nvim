@@ -193,7 +193,7 @@ M.highlights.label = Highlight.new("Label", { link = gruber_hl.yellow_bold })
 ---"sizeof", "+", "*", etc.
 M.highlights.operator = Highlight.new("Operator", { fg = c.fg, italic = opts.italic.operators })
 ---Any other keyword
-M.highlights.keyword = Highlight.new("Keyword", { link = gruber_hl.yellow_bold })
+M.highlights.keyword = Highlight.new("Keyword", { fg = c.brown, bold = opts.bold })
 ---Try, catch, throw
 M.highlights.exception = Highlight.new("Exception", { link = gruber_hl.yellow_bold })
 ---(preferred) generic Preprocessor
@@ -207,7 +207,7 @@ M.highlights.macro = Highlight.new("Macro", { link = gruber_hl.quartz })
 ---Preprocessor #if, #else, #endif, etc.
 M.highlights.pre_condit = Highlight.new("PreCondit", { link = gruber_hl.quartz })
 ---(preferred) int, long, char, etc.
-M.highlights.type = Highlight.new("Type", { link = gruber_hl.quartz })
+M.highlights.type = Highlight.new("Type", { link = gruber_hl.wisteria })
 ---Static, register, volatile, etc.
 M.highlights.storage_class = Highlight.new("StorageClass", { link = gruber_hl.yellow_bold })
 ---Struct, union, enum, etc.
