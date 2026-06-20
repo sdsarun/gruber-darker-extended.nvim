@@ -48,11 +48,6 @@ M.highlights.diff_added = Highlight.new("diffAdded", { link = M.highlights.diff_
 M.highlights.diff_removed = Highlight.new("diffRemoved", { link = M.highlights.diff_delete })
 M.highlights.diff_line = Highlight.new("diffLine", { link = M.highlights.diff_change })
 
----Gitsigns highlights
-M.highlights.git_signs_add = Highlight.new("GitSignsAdd", { link = M.highlights.diff_add })
-M.highlights.git_signs_change = Highlight.new("GitSignsChange", { link = M.highlights.diff_change })
-M.highlights.git_signs_delete = Highlight.new("GitSignsDelete", { link = M.highlights.diff_delete })
-
 ---Filler lines (~) after the end of the buffer.  By, this is highlighted like |hl-NonText|.
 M.highlights.end_of_buffer = Highlight.new("EndOfBuffer", { fg = c["bg+4"], bg = c.none })
 ---Cursor in a focused terminal

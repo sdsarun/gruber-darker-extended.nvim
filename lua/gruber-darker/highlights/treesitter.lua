@@ -78,14 +78,14 @@ M.highlights.func = Highlight.new("@function", { link = vim_hl.func })
 ---Built-in functions
 M.highlights.func_builtin = Highlight.new("@function.builtin", { link = gruber_hl.yellow })
 ---Function calls
--- M.highlights.func_call = Highlight.new("@function.call", {})
+M.highlights.func_call = Highlight.new("@function.call", { link = vim_hl.func })
 ---Preprocessor macros
 M.highlights.func_macro = Highlight.new("@function.macro", { link = vim_hl.macro })
 
 ---Method definitions
 M.highlights.method = Highlight.new("@method", { link = vim_hl.func })
 ---Method calls
--- M.highlights.method_call = Highlight.new("@method.call", {})
+M.highlights.method_call = Highlight.new("@method.call", { link = vim_hl.func })
 
 ---constructor calls and definitions
 M.highlights.constructor = Highlight.new("@constructor", { link = vim_hl.func })

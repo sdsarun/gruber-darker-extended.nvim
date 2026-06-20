@@ -2,6 +2,7 @@ local Highlight = require("gruber-darker.highlight")
 local c = require("gruber-darker.palette")
 local vim_hl = require("gruber-darker.highlights.vim").highlights
 local gruber_hl = require("gruber-darker.highlights.colorscheme").highlights
+local ts_hl = require("gruber-darker.highlights.treesitter").highlights
 
 ---@type HighlightsProvider
 local M = {
@@ -33,6 +34,8 @@ M.highlights.diagnostic_underline_hint =
 
 M.highlights.diagnostic_unnecessary = Highlight.new("DiagnosticUnnecessary", { link = M.highlights.diagnostic_underline_hint })
 
+M.highlights.diagnostic_ok = Highlight.new("DiagnosticOk", { link = gruber_hl.green })
+
 ---LspSaga floating windows
 M.highlights.saga_normal = Highlight.new("SagaNormal", { link = vim_hl.normal_float })
 M.highlights.saga_border = Highlight.new("SagaBorder", { link = vim_hl.float_border })
@@ -50,20 +53,23 @@ M.highlights.lsp_code_lens = Highlight.new("LspCodeLens", { fg = c.brown, italic
 ---Used to highlight the active parameter in the signature help.
 M.highlights.lsp_signature_active_parameter = Highlight.new("LspSignatureActiveParameter", { fg = c.yellow, bold = true })
 
--- M.highlights.lsp_type_class = Highlight.new("@lsp.type.class", {})
--- M.highlights.lsp_type_decorator = Highlight.new("@lsp.type.decorator", {})
--- M.highlights.lsp_type_enum = Highlight.new("@lsp.type.enum", {})
--- M.highlights.lsp_type_enum_member = Highlight.new("@lsp.type.enumMember", {})
--- M.highlights.lsp_type_function = Highlight.new("@lsp.type.function", {})
--- M.highlights.lsp_type_interface = Highlight.new("@lsp.type.interface", {})
--- M.highlights.lsp_type_macro = Highlight.new("@lsp.type.macro", {})
--- M.highlights.lsp_type_method = Highlight.new("@lsp.type.method", {})
--- M.highlights.lsp_type_namespace = Highlight.new("@lsp.type.namespace", {})
--- M.highlights.lsp_type_parameter = Highlight.new("@lsp.type.parameter", {})
--- M.highlights.lsp_type_property = Highlight.new("@lsp.type.property", {})
--- M.highlights.lsp_type_struct = Highlight.new("@lsp.type.struct", {})
--- M.highlights.lsp_type_type = Highlight.new("@lsp.type.type", {})
--- M.highlights.lsp_type_type_parameter = Highlight.new("@lsp.type.typeParameter", {})
--- M.highlights.lsp_type_variable = Highlight.new("@lsp.type.variable", {})
+-- Semantic tokens: link to the matching treesitter capture so LSP-driven
+-- highlighting (e.g. tsserver property/method semantic tokens) stays
+-- consistent with treesitter highlighting instead of going unstyled.
+M.highlights.lsp_type_variable = Highlight.new("@lsp.type.variable", { link = ts_hl.variable })
+M.highlights.lsp_type_parameter = Highlight.new("@lsp.type.parameter", { link = ts_hl.parameter })
+M.highlights.lsp_type_property = Highlight.new("@lsp.type.property", { link = ts_hl.property })
+M.highlights.lsp_type_function = Highlight.new("@lsp.type.function", { link = ts_hl.func })
+M.highlights.lsp_type_method = Highlight.new("@lsp.type.method", { link = ts_hl.method })
+M.highlights.lsp_type_class = Highlight.new("@lsp.type.class", { link = ts_hl.type })
+M.highlights.lsp_type_interface = Highlight.new("@lsp.type.interface", { link = ts_hl.type })
+M.highlights.lsp_type_struct = Highlight.new("@lsp.type.struct", { link = ts_hl.type })
+M.highlights.lsp_type_type = Highlight.new("@lsp.type.type", { link = ts_hl.type })
+M.highlights.lsp_type_type_parameter = Highlight.new("@lsp.type.typeParameter", { link = ts_hl.type })
+M.highlights.lsp_type_enum = Highlight.new("@lsp.type.enum", { link = ts_hl.type })
+M.highlights.lsp_type_enum_member = Highlight.new("@lsp.type.enumMember", { link = ts_hl.constant })
+M.highlights.lsp_type_namespace = Highlight.new("@lsp.type.namespace", { link = ts_hl.namespace })
+M.highlights.lsp_type_macro = Highlight.new("@lsp.type.macro", { link = ts_hl.func_macro })
+M.highlights.lsp_type_decorator = Highlight.new("@lsp.type.decorator", { fg = c.brown })
 
 return M
