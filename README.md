@@ -65,6 +65,34 @@ Your preferences will be merged with the defaults.
 }
 ```
 
+## LazyVim Setup
+
+Create `~/.config/nvim/lua/plugins/colorscheme.lua`:
+
+```lua
+return {
+  {
+    "sdsarun/gruber-darker-extended.nvim",
+    name = "gruber-darker", -- required: colorscheme name must match
+    lazy = false,
+    priority = 1000,
+    opts = {
+      bold = true,
+      italic = {
+        strings = true,
+        comments = true,
+      },
+    },
+  },
+  {
+    "LazyVim/LazyVim",
+    opts = {
+      colorscheme = "gruber-darker",
+    },
+  },
+}
+```
+
 ## Extended Plugin Support
 
 This fork adds highlight groups for the following plugins beyond the upstream:
