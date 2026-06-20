@@ -1,4 +1,5 @@
 local Highlight = require("gruber-darker.highlight")
+local c = require("gruber-darker.palette")
 local vim_hl = require("gruber-darker.highlights.vim").highlights
 local gruber_hl = require("gruber-darker.highlights.colorscheme").highlights
 
@@ -37,17 +38,17 @@ M.highlights.saga_normal = Highlight.new("SagaNormal", { link = vim_hl.normal_fl
 M.highlights.saga_border = Highlight.new("SagaBorder", { link = vim_hl.float_border })
 
 ---Used for highlighting "text" references
--- M.highlights.lsp_reference_text = Highlight.new("LspReferenceText", {})
+M.highlights.lsp_reference_text = Highlight.new("LspReferenceText", { bg = c["bg+2"] })
 ---Used for highlighting "read" references
--- M.highlights.lsp_reference_read = Highlight.new("LspReferenceRead", {})
+M.highlights.lsp_reference_read = Highlight.new("LspReferenceRead", { bg = c["bg+2"] })
 ---Used for highlighting "write" references
--- M.highlights.lsp_reference_write = Highlight.new("LspReferenceWrite", {})
+M.highlights.lsp_reference_write = Highlight.new("LspReferenceWrite", { bg = c["bg+2"] })
 ---Used to color the virtual text of the codelens.
--- M.highlights.lsp_code_lens = Highlight.new("LspCodeLens", {})
+M.highlights.lsp_code_lens = Highlight.new("LspCodeLens", { fg = c.brown, italic = true })
 ---Used to color the separator between two or more code lenses.
 -- M.highlights.lsp_code_lens_separator = Highlight.new("LspCodeLensSeparator", {})
 ---Used to highlight the active parameter in the signature help.
--- M.highlights.lsp_signature_active_parameter = Highlight.new("LspSignatureActiveParameter", {})
+M.highlights.lsp_signature_active_parameter = Highlight.new("LspSignatureActiveParameter", { fg = c.yellow, bold = true })
 
 -- M.highlights.lsp_type_class = Highlight.new("@lsp.type.class", {})
 -- M.highlights.lsp_type_decorator = Highlight.new("@lsp.type.decorator", {})

@@ -64,7 +64,7 @@ M.highlights.error_msg = Highlight.new("ErrorMsg", { fg = c.white, bg = c.red })
 ---The column separating vertically split windows
 M.highlights.vert_split = Highlight.new("VertSplit", { fg = c["fg+2"], bg = c["bg+1"] })
 ---The column separating vertically split windows
-M.highlights.win_separator = Highlight.new("WinSeparator", { fg = c["bg+2"], bold = opts.bold })
+M.highlights.win_separator = Highlight.new("WinSeparator", { fg = c["bg+4"], bold = opts.bold })
 ---Line used for closed folds
 M.highlights.folded = Highlight.new("Folded", { fg = c.brown, bg = c["bg+2"], italic = opts.italic.folds })
 ---'foldcolumn'
@@ -74,7 +74,7 @@ M.highlights.sign_column = Highlight.new("SignColumn", { fg = c["bg+2"], bg = c.
 ---SignColumnSB = Highlight.new("SignColumnSB", { bg = c.bg_sidebar, fg = c.fg_gutter }) ---column where |signs| are displayed
 ---Substitute = Highlight.new("Substitute", { bg = c.red, fg = c.black }) ---|:substitute| replacement text highlighting
 ---Line number for ":number" and ":#" commands, and when 'number' or 'relativenumber' option is set.
-M.highlights.line_number = Highlight.new("LineNr", { fg = c["bg+4"] })
+M.highlights.line_number = Highlight.new("LineNr", { fg = c["niagara-1"] })
 ---Like LineNr when 'cursorline' or 'relativenumber' is set for the cursor line.
 M.highlights.cursor_line_number = Highlight.new("CursorLineNr", { fg = c.yellow })
 ---The character under the cursor or just before it, if it is a paired bracket, and its match. |pi_paren.txt|
@@ -97,7 +97,7 @@ M.highlights.normal_non_current = Highlight.new("NormalNC", { fg = c.fg, bg = c.
 M.highlights.normal_sidebar = Highlight.new("NormalSB", { fg = c.fg, bg = c["bg-1"] })
 ---Normal text in floating windows.
 M.highlights.normal_float = Highlight.new("NormalFloat", { fg = c.fg, bg = c["bg+1"] })
-M.highlights.float_border = Highlight.new("FloatBorder", { fg = c["bg+4"], bg = c.none })
+M.highlights.float_border = Highlight.new("FloatBorder", { fg = c["niagara-1"], bg = c.none })
 
 -- Popup
 
@@ -106,9 +106,9 @@ M.highlights.popup_menu = Highlight.new("Pmenu", { fg = c.fg, bg = c["bg+1"] })
 ---Popup menu: selected item.
 M.highlights.popup_menu_sel = Highlight.new("PmenuSel", { fg = c.fg, bg = c["bg+2"] })
 ---Popup menu: scrollbar.
-M.highlights.popup_menu_sidebar = Highlight.new("PmenuSbar", { bg = c.bg })
+M.highlights.popup_menu_sidebar = Highlight.new("PmenuSbar", { bg = c["bg+2"] })
 ---Popup menu: Thumb of the scrollbar.
-M.highlights.popup_menu_thumb = Highlight.new("PmenuThumb", { bg = c.bg })
+M.highlights.popup_menu_thumb = Highlight.new("PmenuThumb", { bg = c["bg+4"] })
 
 ---|hit-enter| prompt and yes/no questions
 M.highlights.question = Highlight.new("Question", { fg = c.niagara })

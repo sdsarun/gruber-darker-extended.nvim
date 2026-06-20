@@ -99,11 +99,11 @@ M.highlights.keyword = Highlight.new("@keyword", { link = vim_hl.keyword })
 ---keywords related to coroutines (e.g. `go` in Go, `async/await` in Python)
 -- M.highlights.keyword_coroutine = Highlight.new("@keyword.coroutine", {})
 ---keywords that define a function (e.g. `func` in Go, `def` in Python)
--- M.highlights.keyword_function = Highlight.new("@keyword.function", {})
+M.highlights.keyword_function = Highlight.new("@keyword.function", { link = vim_hl.keyword })
 ---operators that are English words (e.g. `and` / `or`)
--- M.highlights.keyword_operator = Highlight.new("@keyword.operator", {})
+M.highlights.keyword_operator = Highlight.new("@keyword.operator", { link = vim_hl.operator })
 ---keywords like `return` and `yield`
--- M.highlights.keyword_return = Highlight.new("@keyword.return", {})
+M.highlights.keyword_return = Highlight.new("@keyword.return", { link = vim_hl.keyword })
 
 ---keywords related to conditionals (e.g. `if` / `else`)
 M.highlights.conditional = Highlight.new("@conditional", { fg = c.yellow })
@@ -117,9 +117,9 @@ M.highlights.debug = Highlight.new("@debug", { link = vim_hl.debug })
 ---GOTO and other labels (e.g. `label:` in C)
 M.highlights.label = Highlight.new("@label", { link = vim_hl.label })
 ---keywords for including modules (e.g. `import` / `from` in Python)
--- M.highlights.include = Highlight.new("@include", {})
+M.highlights.include = Highlight.new("@include", { link = vim_hl.include })
 ---keywords related to exceptions (e.g. `throw` / `catch`)
--- M.highlights.exception = Highlight.new("@exception", {})
+M.highlights.exception = Highlight.new("@exception", { link = vim_hl.exception })
 
 -- Types
 
@@ -140,7 +140,7 @@ M.highlights.storage_class = Highlight.new("@storageclass", { link = vim_hl.stor
 ---object and struct fields
 M.highlights.field = Highlight.new("@field", { link = gruber_hl.niagara })
 ---similar to `@field`
-M.highlights.property = Highlight.new("@property", { link = gruber_hl.dark_niagara })
+M.highlights.property = Highlight.new("@property", { link = gruber_hl.niagara })
 
 -- Identifiers
 
@@ -157,7 +157,7 @@ M.highlights.constant_builtin = Highlight.new("@constant.builtin", { link = grub
 M.highlights.constant_macro = Highlight.new("@constant.macro", { link = vim_hl.define })
 
 ---modules or namespaces
--- M.highlights.namespace = Highlight.new("@namespace", {})
+M.highlights.namespace = Highlight.new("@namespace", { link = gruber_hl.quartz })
 ---symbols or atoms
 -- M.highlights.symbol = Highlight.new("@symbol", {})
 

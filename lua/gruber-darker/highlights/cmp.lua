@@ -16,7 +16,7 @@ end
 
 M.highlights.cmp_item_kind = Highlight.new("CmpItemKind", { fg = c.white })
 M.highlights.cmp_item_menu = Highlight.new("CmpItemMenu", { fg = c.white })
-M.highlights.cmp_item_deprecated = Highlight.new("CmpItemAbbrDeprecated", { link = gruber_hl.darkest_niagara })
+M.highlights.cmp_item_deprecated = Highlight.new("CmpItemAbbrDeprecated", { link = gruber_hl.darker_niagara })
 M.highlights.cmp_item_abbr = Highlight.new("CmpItemAbbr", { fg = c.white })
 M.highlights.cmp_item_abbr_match = Highlight.new("CmpItemAbbrMatch", { link = gruber_hl.yellow_bold })
 M.highlights.cmp_item_abbr_match_fuzzy = Highlight.new("CmpItemAbbrMatchFuzzy", { link = gruber_hl.brown_bold })
